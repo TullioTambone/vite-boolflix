@@ -47,20 +47,24 @@ nav{
     div{
         display: flex;
         align-items: center;
+        position: relative;
         i{
             cursor: pointer;
             color: white;
+            position: absolute;
+            left: 13px;
         }
         input{
             color: white;
             background-color: transparent;
-            border: 1px solid white;
+            border:1px solid rgba(255, 255, 255, 0.5);
             margin-left: 5px;
+            padding-left: 30px;
         }
         select{
             background-color: transparent;
             color: white;
-            border: 1px solid white;
+            border:1px solid rgba(255, 255, 255, 0.5);
         }
     }
 }

@@ -1,8 +1,7 @@
 import {reactive} from 'vue'
 
 export const store = reactive({
-    arrayFilms: [],
-    arrayTv: [],
+    arrayMovie: [],
     textInput:'',
     typeSearch:'movie',
     control: false,
