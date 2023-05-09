@@ -1,6 +1,12 @@
 <script>
+import {store} from '../store'
     export default{
-        name:'NavbarComp'
+        name:'NavbarComp',
+        data(){
+            return{
+                store,
+            }
+        }
     }
 </script>
 
@@ -12,7 +18,7 @@
 
         <div>
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" name="" id="">
+            <input type="text" v-model="store.textInput" @keyup.enter="$emit('searchInArray')">
         </div>
     </nav>
 </template>
@@ -41,6 +47,7 @@ nav{
             color: white;
         }
         input{
+            color: white;
             background-color: transparent;
             border: 1px solid white;
             margin-left: 5px;

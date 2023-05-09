@@ -17,18 +17,30 @@ import NavbarComp from './components/NavbarComp.vue'
     },
     computed: {
       callApi(){
-        axios.get('https://api.themoviedb.org/3')
-        .then( res =>{
-          console.log(res)
-        })
+        if(store.textInput !== ''){
+          
+          axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=91f273529fd161bbc1fe55678fe9d7de&query=${store.textInput}`)
+          .then( res =>{
+            store.arrayFilms = res.data.results
+            store.arrayFilms.forEach((element, index) =>{
+              if(element.title.includes(store.textInput)){
+                console.log(element.title)
+              }
+            })
+          })
+        } else{
+        }
       }
+    },
+    methods: {
+
     }
   }
 </script>
 
 <template>
 <header>
-  <NavbarComp/>
+  <NavbarComp @searchInArray="callApi"/>
 </header>
 </template>
 
