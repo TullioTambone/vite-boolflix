@@ -21,37 +21,21 @@ import CardSectionComp from './components/CardSectionComp.vue'
     computed: {
       callApi(){
         store.arrayMovie = []
+        store.arrayTv= []
+        store.typeApi.forEach((element, index) =>{
 
-        if(store.textInput !== ''){
-          
-          axios.get(`https://api.themoviedb.org/3/search/${store.typeSearch}?api_key=91f273529fd161bbc1fe55678fe9d7de&query=${store.textInput}`)
-
-          .then( res =>{
-
-            if(store.typeSearch == 'movie'){
-
-              store.arrayMovie = res.data.results
-              store.arrayMovie.forEach(element => {
-                if(element.title.toLowerCase().startsWith(store.textInput)){
-
-                  console.log(element.title)
-                }else{
-                  
-                }
-              });
-            } else{
-              store.arrayMovie = res.data.results
-              store.arrayMovie.forEach(element => {
-                if(element.title.toLowerCase().startsWith(store.textInput)){
-
-                  console.log(element.title)
-                }else{
-                  
-              }})
-            }
-          })
-        } else{
-        }
+          if(store.textInput !== ''){
+            axios.get(`https://api.themoviedb.org/3/search/${element}?api_key=91f273529fd161bbc1fe55678fe9d7de&query=${store.textInput}`)
+            .then( res =>{
+              if(element == 'movie'){
+                store.arrayMovie = res.data.results
+              } else{
+                store.arrayTv = res.data.results   
+              }
+            })
+          } else{
+          }
+        })
       }
     },
     methods: {
@@ -78,6 +62,7 @@ import CardSectionComp from './components/CardSectionComp.vue'
   main{
     background-color: #141414;
     height: 90vh;
+    overflow-y: auto;
   }
 }
 </style>
