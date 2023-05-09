@@ -1,9 +1,17 @@
 <script >
-
+import NavbarComp from './components/NavbarComp.vue';
+  export default{
+    name:'App',
+    components:{
+      NavbarComp,
+    }
+  }
 </script>
 
 <template>
-  <h1>Ciao mondo</h1>
+<header>
+  <NavbarComp/>
+</header>
 </template>
 
 <style lang="scss">
