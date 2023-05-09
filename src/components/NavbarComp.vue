@@ -19,6 +19,11 @@ import {store} from '../store'
         <div>
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" v-model="store.textInput" @keyup.enter="$emit('searchInArray')">
+            <select id="" v-model="store.typeSearch">
+                <option disabled>cerca per..</option>
+                <option value="movie">Movie</option>
+                <option value="tv">Tv Series</option>
+            </select>
         </div>
     </nav>
 </template>
@@ -51,6 +56,11 @@ nav{
             background-color: transparent;
             border: 1px solid white;
             margin-left: 5px;
+        }
+        select{
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
         }
     }
 }
