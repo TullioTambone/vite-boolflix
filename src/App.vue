@@ -15,6 +15,7 @@ import NavbarComp from './components/NavbarComp.vue'
     created(){
       this.callApi
     },
+    
     computed: {
       callApi(){
         store.arrayFilms= []
@@ -62,7 +63,7 @@ import NavbarComp from './components/NavbarComp.vue'
   <NavbarComp @searchInArray="callApi"/>
 </header>
 <main>
-  
+
 </main>
 </template>
 
