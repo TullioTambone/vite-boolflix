@@ -51,9 +51,9 @@ import {store} from '../store'
 </script>
 
 <template>
-    <div class="container">
+    <div class="container mt-2 mb-5">
         <div class="row" v-if="store.typeApi[0] == 'movie'">
-            <h1 v-if="store.arrayMovie.length !== 0">Films</h1>
+            <h1 v-if="store.arrayMovie.length !== 0" class="text-center">Films</h1>
             <div class="my-card col-12 col-md-4 col-lg-2" v-for="(element, index) in store.arrayMovie" 
             :key="index">
             <img :src="`${missingImg(element)}`" alt="" id="poster">
@@ -67,8 +67,8 @@ import {store} from '../store'
             </div>
             </div>
         </div>
-        <div class="row m-auto" v-if="store.typeApi[1] == 'tv'">
-            <h2 v-if="store.arrayTv.length !== 0">Serie</h2>
+        <div class="row m-auto mt-3" v-if="store.typeApi[1] == 'tv'">
+            <h2 v-if="store.arrayTv.length !== 0" class="text-center">Serie</h2>
             <div class="my-card col-12 col-md-4 col-lg-2" v-for="(element, index) in store.arrayTv" 
             :key="index">
             <img :src="`http://image.tmdb.org/t/p/w500/${element.poster_path}`" alt="" id="poster">
@@ -117,10 +117,16 @@ import {store} from '../store'
             &:hover .info{
                 opacity: 1;
                 transition: 1s ease;
+                
             }
             &:hover #poster{
                 opacity: 0.2;
                 transition: 0.5s ease;
+            }
+            &:hover{
+                scale: 1.1;
+                z-index: 99;
+                transition: 1s ease;
             }
         }
     }
