@@ -110,6 +110,7 @@ import {store} from '../store'
                 left: 50%;
                 transform: translate(-50%, -50%);
                 opacity: 0;
+                width: 80%;
             }
             #poster{
                 width: 100%;
