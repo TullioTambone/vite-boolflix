@@ -44,7 +44,8 @@ import {store} from '../store'
                 } else{
                     return `http://image.tmdb.org/t/p/w500/${e.poster_path}`
                 }
-            }
+            },
+            
         }
     }
 </script>
@@ -95,6 +96,7 @@ import {store} from '../store'
         gap: 1rem;
         justify-content: center;
         .my-card{
+            position: relative;
             padding: 0;
             color: white;
             background-color: rgba(0, 0, 0, 0.5);
@@ -103,10 +105,22 @@ import {store} from '../store'
             flex-direction: column;
             justify-content: space-between;
             .info{
-                padding: 1rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
             }
             #poster{
                 width: 100%;
+            }
+            &:hover .info{
+                opacity: 1;
+                transition: 1s ease;
+            }
+            &:hover #poster{
+                opacity: 0.2;
+                transition: 0.5s ease;
             }
         }
     }
