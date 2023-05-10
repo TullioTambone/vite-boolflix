@@ -37,6 +37,13 @@ import {store} from '../store'
                 } else {
                     return e.original_language.toUpperCase()
                 }
+            },
+            missingImg(e){
+                if(e.poster_path == null || e.poster_path == ''){
+                    return 'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
+                } else{
+                    return `http://image.tmdb.org/t/p/w500/${e.poster_path}`
+                }
             }
         }
     }
@@ -48,7 +55,7 @@ import {store} from '../store'
             <h1 v-if="store.arrayMovie.length !== 0">Films</h1>
             <div class="my-card col-12 col-md-4 col-lg-2" v-for="(element, index) in store.arrayMovie" 
             :key="index">
-            <img :src="`http://image.tmdb.org/t/p/w500/${element.poster_path}`" alt="" id="poster">
+            <img :src="`${missingImg(element)}`" alt="" id="poster">
             <div class="info">
                 <h5>{{ element.title }}</h5>
                 <h6>{{ element.original_title }}</h6>
@@ -92,6 +99,9 @@ import {store} from '../store'
             color: white;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             .info{
                 padding: 1rem;
             }
