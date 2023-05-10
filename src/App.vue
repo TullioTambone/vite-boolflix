@@ -62,7 +62,7 @@ import CardSectionComp from './components/CardSectionComp.vue'
   main{
     background-color: #141414;
     height: 90vh;
-    overflow-y: auto;
+    overflow-y:scroll;
   }
 }
 </style>
