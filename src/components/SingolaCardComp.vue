@@ -4,21 +4,6 @@ export default{
     props:['infoFilm'],
 
     methods: {
-        starsCounter(e){
-            if (e.vote_average == '' || e.vote_average == 0){
-                return e.vote_average
-            } else if(e.vote_average < 2 && e.vote_average >= 1){
-                return e.vote_average
-            } else if(e.vote_average < 3 && e.vote_average >= 2){
-                return e.vote_average
-            } else if(e.vote_average < 4 && e.vote_average >= 3){
-                return e.vote_average
-            } else if(e.vote_average < 5 && e.vote_average >= 4){
-                return e.vote_average
-            } else{
-                return "5"
-            }
-        },
         findFlag(e){
             if(e.original_language.toLowerCase() == "en"){
                 return 'GB'
@@ -55,7 +40,10 @@ export default{
                 return this.infoFilm.name
             }
         },
+        getVote(){
+            return Math.ceil(this.infoFilm.vote_average / 2)
         }
+    }
 }
 </script>
 
@@ -66,11 +54,22 @@ export default{
         <h6>{{ genOriginalTitle() }}</h6>
         <img :src="`https://www.countryflagicons.com/FLAT/64/${findFlag(infoFilm)}.png`" style="width: 30px;" alt="">
         <div class="d-flex align-items-center">
-            <span v-for="star in Math.ceil(starsCounter(infoFilm))" class="fa-solid fa-star" style="color: #fbff00;"></span>
+            <span v-for="star in 5" class="fa-star" :class="(star <= getVote()) ? 'fa-solid' : 'fa-regular'" style="color: #fbff00;"></span>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+.info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 80%;
+}
+#poster{
+    width: 100%;
+}
 
 </style>

@@ -52,31 +52,6 @@ import SingolaCardComp from './SingolaCardComp.vue'
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            .info{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                opacity: 0;
-                width: 80%;
-            }
-            #poster{
-                width: 100%;
-            }
-            &:hover .info{
-                opacity: 1;
-                transition: 1s ease;
-                
-            }
-            &:hover #poster{
-                opacity: 0.2;
-                transition: 0.5s ease;
-            }
-            &:hover{
-                scale: 1.1;
-                z-index: 99;
-                transition: 1s ease;
-            }
         }
     }
 }
